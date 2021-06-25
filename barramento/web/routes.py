@@ -20,12 +20,8 @@ def login():
 
 @app.route("/get_all_business", methods=['GET'])
 def get_all_business():
-    global auth
-    if auth:
-        return controllers.get_all_business()
-    else:
-        return "You are not Authenticated. Please login."
-
+    return controllers.get_all_business()
+    
 @app.route("/get_id_business", methods=['GET'])
 def get_id_business():
     return controllers.get_id_business(request)
@@ -47,5 +43,9 @@ def update_business(id):
 
 @app.route("/create_business", methods=['POST'])
 def create_business():
-    payload = request.json
-    return controllers.create_business(payload)
+    global auth
+    if auth:
+        payload = request.json
+        return controllers.create_business(payload)
+    else:
+        return "You are not Authenticated. Please login."
