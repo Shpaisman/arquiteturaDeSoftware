@@ -29,3 +29,5 @@ def update_business(id, payload):
 def create_business(payload):
     return adapter.create_business(payload)
 
+def login(payload):
+    return adapter.login(payload)

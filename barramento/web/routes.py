@@ -3,13 +3,28 @@ import web.controllers as controllers
 
 app = Flask(__name__)
 
+auth = False
+
+
 @app.route('/')
 def home_route():
     return "Nothing Here"
 
+@app.route("/login", methods=['POST'])
+def login():
+    payload = request.json
+    jwt = controller.login(payload)
+    if jwt:
+        global auth
+        auth = True    
+
 @app.route("/get_all_business", methods=['GET'])
 def get_all_business():
-    return controllers.get_all_business()
+    global auth
+    if auth:
+        return controllers.get_all_business()
+    else:
+        return "You are not Authenticated. Please login."
 
 @app.route("/get_id_business", methods=['GET'])
 def get_id_business():

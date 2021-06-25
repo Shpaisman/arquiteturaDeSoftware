@@ -7,6 +7,16 @@ import json
 bp = os.getenv('BUSINESS_PORT')
 cp = os.getenv('CLIENT_PORT')
 
+def add_business():
+    url = "http://localhost:8081/relatorio/comerciante"
+    try:
+        data = requests.put(url)
+    except Exception as err:
+        print(f'Other error occurred: {err}')
+    else:
+        print("Business successfully added.")
+        return True
+
 
 def get_id_business(business_id):
     url = f"http://{bp}/exponegocio/comerciante/{business_id}"
@@ -94,4 +104,18 @@ def create_business(payload):
     else:
         print('Connected. Creating business')
         data = json.loads(response.text)
+        add_business()
         return data
+
+def login(payload):
+    url = f"http://{cp}/login"
+
+    try:
+        response = requests.post(url, json=payload)
+        response.raise_for_status()
+    except Exception as err:
+        print(f'Other error occurred: {err}')
+    else:
+        print('Connected. Login successful')
+        jwt = json.loads(response.text)
+        return jwt    
