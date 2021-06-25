@@ -1,4 +1,7 @@
-Projeto de arquitetura baseada em micro serviços
+Projeto de arquitetura baseada em micro serviços.
+
+
+O serviço de barramento faz controle de eventos e 
 
 
 ### Instruções
@@ -24,6 +27,8 @@ poetry run flask run
 
 
 ### Variáveis de Ambiente para rodar
+
+deve-se exportar as seguintes variáveis para o sistema rodar.
 
 ```bash
 

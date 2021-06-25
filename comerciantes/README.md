@@ -1,4 +1,4 @@
-<h1>Comando para subir uma imagem postgres (Docker):</h1>
+# Comando para subir uma imagem postgres (Docker):
 
 docker run --name postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=postgres -p 5432:5432 -d postgres
 Obs: Se o postgres já estiver instalado, certificar que existe um schema "public". 
