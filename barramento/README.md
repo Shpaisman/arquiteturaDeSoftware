@@ -21,3 +21,14 @@ export FLASK_ENV=development
 poetry run flask run 
 
 ```
+
+
+### Variáveis de Ambiente para rodar
+
+```bash
+
+export BUSINESS_PORT=8080
+export FLASK_ENV=development
+
+
+```

@@ -19,3 +19,12 @@ def get_all_business():
         data = json.loads(r.text)
         return data
         
+def get_id_business(request):
+    if 'id' in request.args:
+        business_id = request.args.get(
+            'id').replace(" ", "").split(",")
+    else:
+        business_id = []
+    if business_id:
+        business_id = business_id[0]
+    return business_id
