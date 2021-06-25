@@ -27,7 +27,7 @@ poetry run flask run
 
 ```bash
 
-export BUSINESS_PORT=8080
-export CLIENT_PORT=4000
+export BUSINESS_PORT=localhost:8080
+export CLIENT_PORT=localhost:4000
 
 ```
