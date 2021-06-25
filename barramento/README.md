@@ -16,7 +16,7 @@ poetry install
 
 ```bash
 
-export FLASK_APP=barramento.web.routes
+export FLASK_APP=web.routes
 export FLASK_ENV=development
 poetry run flask run 
 
@@ -28,7 +28,6 @@ poetry run flask run
 ```bash
 
 export BUSINESS_PORT=8080
-export FLASK_ENV=development
-
+export CLIENT_PORT=4000
 
 ```

@@ -14,3 +14,7 @@ def get_all_business():
 @app.route("/get_id_business", methods=['GET'])
 def get_id_business():
     return controllers.get_id_business(request)
+
+@app.route("/delete_business", methods=['DELETE'])
+def get_id_business():
+    return controllers.get_id_business(request)
