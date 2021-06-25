@@ -1,5 +1,7 @@
 package br.com.maua.relatorios.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,16 +20,24 @@ public class RelatorioService {
 
 	public void incrementarConsumidor() {
 		
-		Relatorio relatorio = relatorioRepo.findById(1).get();
-		Relatorio saved = relatorio.incrementaConsumidor();
-		
-		relatorioRepo.save(saved);
+		Optional<Relatorio> relatorioOptional = relatorioRepo.findById(1);
+		if(!relatorioOptional.isPresent()) {
+			relatorioRepo.save(new Relatorio(1, 0, 1));
+		}else {
+			Relatorio saved = relatorioOptional.get().incrementaConsumidor();
+			
+			relatorioRepo.save(saved);
+		}
 	}
 	
 	public void incrementarComerciante() {
-		Relatorio relatorio = relatorioRepo.findById(1).get();
-		Relatorio saved = relatorio.incrementaComerciante();
-		
-		relatorioRepo.save(saved);
+		Optional<Relatorio> relatorioOptional = relatorioRepo.findById(1);
+		if(!relatorioOptional.isPresent()) {
+			relatorioRepo.save(new Relatorio(1, 1, 0));
+		}else {
+			Relatorio saved = relatorioOptional.get().incrementaComerciante();
+			
+			relatorioRepo.save(saved);
+		}
 	}
 }

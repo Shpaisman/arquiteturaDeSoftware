@@ -1,0 +1,1 @@
+CREATE TABLE tb_relatorio(id INT AUTO_INCREMENT PRIMARY KEY, qtd_consumidor INT, qtd_comerciante INT);
